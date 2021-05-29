@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('halaman_utama');
 });
 
-Route::get('/tambah_pertemuan', function () {
-    return view('tambah_pertemuan');
+Route::get('/pertemuan', function () {
+    return view('pertemuan');
 });
 

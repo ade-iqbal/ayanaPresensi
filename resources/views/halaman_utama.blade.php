@@ -3,9 +3,6 @@
 @section('title', 'Ayana Home Page')
 
 @section('container')
-<div class="container">
-    <div class="row">
-        <h1 class="mt-3">Ini Halaman Utama Ayana!</h1>
-    </div>
-</div>
+<h3 class="fs-4 mb-3">Isi Disini</h3>
+
 @endsection
