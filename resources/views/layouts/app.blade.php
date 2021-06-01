@@ -28,7 +28,7 @@
                         class="fas fa-chalkboard-teacher me-2"></i>Kelas</a>
                 
                 @if(auth()->user()->role == "admin")
-                    <a href="{{route('admin.kelas.tambah')}}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fas fa-chalkboard me-2"></i>Tambah Kelas</a>
+                    <a href="{{route('admin.kelas.tambah')}}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold {{ request()->is('kelas/tambah') ? 'active' : '' }}"><i class="fas fa-chalkboard me-2"></i>Tambah Kelas</a>
                 @endif
 
             </div>
