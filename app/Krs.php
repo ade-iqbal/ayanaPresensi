@@ -8,7 +8,7 @@ class Krs extends Model
 {
     
     protected $table = "krs";
-    protected $fillable = ["id_kelas", "id_mahasiswa"];
+    protected $fillable = ["kelas_id", "mahasiswa_id"];
 
     public function mahasiswa(){
 

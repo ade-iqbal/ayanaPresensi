@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/a5efd35989.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/template_utama.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
     
 
     <title>@yield('title')</title>
@@ -17,25 +18,17 @@
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
         <div class="bg-white" id="sidebar-wrapper">
-            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
-                    class="fas fa-user-secret me-2"></i>Ayana</div>
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">
+                <img src="{{asset('img/ayana-logo.jpeg')}}" alt="logo ayana">
+            </div>
             <div class="list-group list-group-flush my-3">
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active"><i 
-                        class="fas fa-chalkboard-teacher me-2"></i>Lihat Kelas</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i 
-                        class="fas fa-chalkboard me-2"></i>Tambah Kelas</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i 
-                        class="fas fa-user-plus me-2"></i>Tambah Peserta Kelas</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i 
-                        class="fas fa-users me-2"></i>Lihat Peserta Kelas</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i 
-                        class="far fa-calendar-plus me-2"></i>Tambah Pertemuan</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i 
-                        class="far fa-calendar-check me-2"></i>Lihat Pertemuan</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
-                        class="fas fa-comment-dots me-2"></i>Kehadiran</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
-                        class="fas fa-power-off me-2"></i>Logout</a>
+                <a href="{{route('home')}}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold {{ request()->is('home') ? 'active' : '' }}"><i 
+                        class="fas fa-chalkboard-teacher me-2"></i>Daftar Kelas</a>
+                
+                @if(auth()->user()->role == "admin")
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fas fa-chalkboard me-2"></i>Tambah Kelas</a>
+                @endif
+
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -46,7 +39,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
                 <div class="d-flex align-items-center">
                     <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-                    <h2 class="fs-2 m-0">Dashboard</h2>
+                    <!-- <p class="fs-2 m-0">Dashboard</p> -->
                 </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
@@ -61,12 +54,17 @@
                             <a class="nav-link dropdown-toggle second-text fw-bold" href="#" 
                             id="navbarDropdown" role="button" data-bs-toggle="dropdown" 
                             aria-expanded="false">
-                                <i class="fas fa-user me-2"></i>Admin
+                                <i class="fas fa-user me-2"></i>{{auth()->user()->name}}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Profile</a></li>
                                 <li><a class="dropdown-item" href="#">Settings</a></li>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                                <li><a class="dropdown-item" href="{{ route('logout') }}" 
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                             </ul>
                         </li>
                     </ul>
@@ -75,11 +73,12 @@
 
             <div class="container-fluid px-4">
                 <div class="row my-5">
-                    @yield('container')
+                    @yield('content')
                 </div>
             </div>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         var el = document.getElementById("wrapper");
@@ -89,5 +88,8 @@
             el.classList.toggle("toggled");
         };
     </script>
+
+    @yield('footer')
+
 </body>
 </html>

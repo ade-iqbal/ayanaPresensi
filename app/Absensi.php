@@ -8,7 +8,7 @@ class Absensi extends Model
 {
     
     protected $table = "absensi";
-    protected $fillable = ["id_krs", "id_pertemuan", "jam_masuk", "jam_keluar", "durasi"];
+    protected $fillable = ["krs_id", "pertemuan_id", "jam_masuk", "jam_keluar", "durasi"];
 
     public function krs(){
 

@@ -13,11 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('halaman_utama');
+
+
+Auth::routes(['register' => false, 'reset' => false]);
+
+// route admin dan mahasiswa
+Route::group(['middleware' => ['auth', 'checkRole:admin,mahasiswa']], function(){
+    Route::get('/home', 'HomeController@index')->name('home');
 });
 
-Route::get('/pertemuan', function () {
-    return view('pertemuan');
+
+// route untuk mahasiswa saja
+Route::group(['middleware' => ['auth', 'checkRole:mahasiswa']], function(){
+    Route::get('/mahasiswa/kelas/{id}', 'MahasiswaController@detail_kelas');
 });
 
+
+// route untuk admin saja
+Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
+
+});

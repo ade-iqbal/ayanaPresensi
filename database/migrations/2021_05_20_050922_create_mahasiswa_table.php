@@ -14,12 +14,11 @@ class CreateMahasiswaTable extends Migration
     public function up()
     {
         Schema::create('mahasiswa', function (Blueprint $table) {
-            $table->increments("id_mahasiswa");
+            $table->id();
+            $table->integer("user_id");
             $table->string("nama");
             $table->string("nim");
-            $table->string("email");
-            $table->integer("tipe");
-            $table->integer("password");
+            $table->string("email")->unique();
         });
     }
 

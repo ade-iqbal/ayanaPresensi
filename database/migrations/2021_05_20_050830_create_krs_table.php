@@ -14,9 +14,9 @@ class CreateKrsTable extends Migration
     public function up()
     {
         Schema::create('krs', function (Blueprint $table) {
-            $table->increments("id_krs");
-            $table->integer("id_kelas");
-            $table->integer("id_mahasiswa");
+            $table->id();
+            $table->integer("kelas_id");
+            $table->integer("mahasiswa_id");
         });
     }
 

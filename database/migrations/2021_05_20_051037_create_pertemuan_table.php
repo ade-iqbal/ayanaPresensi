@@ -14,11 +14,10 @@ class CreatePertemuanTable extends Migration
     public function up()
     {
         Schema::create('pertemuan', function (Blueprint $table) {
-            $table->increments("id_pertemuan");
-            $table->integer("id_kelas");
+            $table->id();
+            $table->integer("kelas_id");
             $table->integer("pertemuan_ke");
             $table->date("tanggal");
-            $table->string("materi");
         });
     }
 

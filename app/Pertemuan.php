@@ -8,7 +8,7 @@ class Pertemuan extends Model
 {
     
     protected $table = "pertemuan";
-    protected $fillable = ["id_kelas", "pertemuan_ke", "tanggal", "materi"];
+    protected $fillable = ["kelas_id", "pertemuan_ke", "tanggal", "materi"];
 
     public function absensi(){
 
