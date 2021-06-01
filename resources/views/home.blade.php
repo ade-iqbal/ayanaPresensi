@@ -8,8 +8,8 @@
     <div class="row">
         @forelse($krs_mahasiswa as $krs)
         <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="card text-center mb-3" style="width: 18rem; height:10rem">
-                <div class="card-body">
+            <div class="card text-center border-success mb-3" style="width: 18rem; height:10rem">
+                <div class="card-body shadow">
                     <h5 class="card-title">{{$krs->nama_matkul}}</h5>
                     <p class="card-text">{{$krs->kode_kelas}}</p>
                     <a href="/mahasiswa/kelas/{{$krs->id}}" class="btn btn-main">Detail</a>

@@ -17,9 +17,11 @@
   <body>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
-        <div class="bg-white" id="sidebar-wrapper">
+        <div class="bg-white shadow-lg" id="sidebar-wrapper">
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">
-                <img src="{{asset('img/ayana-logo.jpeg')}}" alt="logo ayana">
+                <a href="{{route('home')}}">
+                    <img src="{{asset('img/ayana-logo.jpeg')}}" alt="logo ayana">
+                </a>
             </div>
             <div class="list-group list-group-flush my-3">
                 <a href="{{route('home')}}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold {{ request()->is('home') ? 'active' : '' }}"><i 
@@ -36,10 +38,10 @@
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
-            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+            <nav class="navbar navbar-expand-lg navbar-light py-4 px-4">
                 <div class="d-flex align-items-center">
                     <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-                    <!-- <p class="fs-2 m-0">Dashboard</p> -->
+                    <p class="fs-2 m-0">Dashboard</p>
                 </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
@@ -71,7 +73,7 @@
                 </div>
             </nav>
 
-            <div class="container-fluid px-4">
+            <div class="container-fluid px-5">
                 <div class="row my-5">
                     @yield('content')
                 </div>

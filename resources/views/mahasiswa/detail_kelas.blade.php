@@ -14,11 +14,9 @@
                 </div>
                 <div class="col-4">
                     <p>Semester <span style="margin-left: 40px;">: {{$kelas->semester}}
-                        (
-                            @if($kelas->semester%2!=0) Ganjil
-                            @else Genap
-                            @endif
-                        )
+                        @if($kelas->semester%2!=0) (Ganjil)
+                        @else (Genap)
+                        @endif
                     </span></p>
                 </div>
             </div>
@@ -37,53 +35,27 @@
                     <tr>
                         <th>Pertemuan</th>
                         <th>Tanggal</th>
-                        <th>Waktu</th>
+                        <th>Jam masuk</th>
+                        <th>Jam keluar</th>
+                        <th>Durasi</th>
                         <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($pertemuan_presensi as $absensi)
                     <tr>
-                        <td>1</td>
-                        <td>123</td>
-                        <td>123</td>
-                        <td>hadir</td>
+                        <td>{{$absensi->pertemuan_ke}}</td>
+                        <td>{{date("d-m-Y", strtotime($absensi->tanggal))}}</td>
+                        <td>{{$absensi->jam_masuk}}</td>
+                        <td>{{$absensi->jam_keluar}}</td>
+                        <td>{{floor($absensi->durasi/60)}} jam {{$absensi->durasi%60}} menit</td>
+                        <td>
+                            @if($absensi->durasi == 0) tidak hadir
+                            @else hadir
+                            @endif
+                        </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>123</td>
-                        <td>123</td>
-                        <td>hadir</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>123</td>
-                        <td>123</td>
-                        <td>hadir</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>123</td>
-                        <td>123</td>
-                        <td>hadir</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>123</td>
-                        <td>123</td>
-                        <td>hadir</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>123</td>
-                        <td>123</td>
-                        <td>hadir</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>123</td>
-                        <td>123</td>
-                        <td>hadir</td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

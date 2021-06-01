@@ -14,16 +14,13 @@ class MahasiswaController extends Controller
         $pertemuan_presensi = Pertemuan::select('*')
                                 ->join('absensi', 'pertemuan.id', '=', 'absensi.pertemuan_id')
                                 ->join('krs', 'absensi.krs_id', '=', 'krs.id')
-                                // ->where('krs.mahasiswa_id', auth()->user()->mahasiswa->id)
-                                // ->where('krs.kelas_id', $id)
-                                // ->where([
-                                //     ['krs.mahasiswa_id', auth()->user()->mahasiswa->id],
-                                //     ['krs.kelas_id', $id]
-                                //     ])
+                                ->where([
+                                    ['krs.mahasiswa_id', auth()->user()->mahasiswa->id],
+                                    ['krs.kelas_id', $id]
+                                    ])
                                 ->orderby('pertemuan_ke', "ASC")
                                 ->get();
-        dd($pertemuan_presensi);
-        return view('mahasiswa.detail_kelas', compact('kelas'));
+        return view('mahasiswa.detail_kelas', compact('kelas', 'pertemuan_presensi'));
 
     }
 }
