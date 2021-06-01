@@ -31,5 +31,6 @@ Route::group(['middleware' => ['auth', 'checkRole:mahasiswa']], function(){
 
 // route untuk admin saja
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
-
+    Route::get('/kelas/{id}/detail', 'KelasController@detail_kelas');
+    Route::get('/kelas/tambah', 'KelasController@form_tambah')->name('admin.kelas.tambah');
 });

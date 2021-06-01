@@ -25,10 +25,10 @@
             </div>
             <div class="list-group list-group-flush my-3">
                 <a href="{{route('home')}}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold {{ request()->is('home') ? 'active' : '' }}"><i 
-                        class="fas fa-chalkboard-teacher me-2"></i>Daftar Kelas</a>
+                        class="fas fa-chalkboard-teacher me-2"></i>Kelas</a>
                 
                 @if(auth()->user()->role == "admin")
-                    <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fas fa-chalkboard me-2"></i>Tambah Kelas</a>
+                    <a href="{{route('admin.kelas.tambah')}}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fas fa-chalkboard me-2"></i>Tambah Kelas</a>
                 @endif
 
             </div>
@@ -78,6 +78,11 @@
                     @yield('content')
                 </div>
             </div>
+
+            <div class="footer-wrapper text-center">
+                <p>©Build by Kelompok 7</p>
+                <p>@2021</p>
+            </div>
         </div>
     </div>
 
@@ -89,6 +94,23 @@
         toggleButton.onclick = function () {
             el.classList.toggle("toggled");
         };
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable({
+                "bJQueryUI": true,
+                "bDestroy": true,
+                "aoColumnDefs": [{
+                    'bSortable': false,
+                    'aTargets': [0, 1]
+                }],
+                "aLengthMenu": [[5, 10, 15], [5, 10, 15]],
+                "iDisplayLength": 5,
+                info: false
+            });
+        } );
     </script>
 
     @yield('footer')

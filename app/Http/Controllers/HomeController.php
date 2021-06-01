@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Mahasiswa;
+use App\Kelas;
 
 class HomeController extends Controller
 {
@@ -38,7 +39,9 @@ class HomeController extends Controller
 
         // jika user adalah admin
         elseif((auth()->user()->role == "admin")) {
-            return view('home');
+            $kelas = Kelas::all()->sortByDesc('tahun')
+                                ->sortByDesc('semester');
+            return view('home', compact('kelas'));
         }
 
     }
