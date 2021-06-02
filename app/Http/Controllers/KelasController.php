@@ -22,7 +22,6 @@ class KelasController extends Controller
     public function form_tambah(){
         return view('admin.kelas.form_tambah');
     }
-<<<<<<< HEAD
 
     public function tambah_pertemuan($id){
         return view('admin.pertemuan.tambah_pertemuan', compact('id'));
@@ -52,7 +51,7 @@ class KelasController extends Controller
     }
 
 
-=======
+
     public function getKelas($id){
 
 		$dtkelas = \App\Kelas::all()
@@ -64,7 +63,7 @@ class KelasController extends Controller
 	public function edit(Request $request){
 
 		$id_kelas = $request->id_kelas;
-		$kode_kelas = strtoupper($request->kode_matkul)."/kelas/0".$request->kode_kelas;
+		$kode_kelas = strtoupper($request->kode_matkul)."".$request->kode_kelas;
 		$kode_matkul = strtoupper($request->kode_matkul);
 		$nama_matkul = $request->nama_matkul;
 		$tahun = $request->tahun;
@@ -110,7 +109,7 @@ class KelasController extends Controller
 	public function tambah(Request $request)
 	{	
 
-		$kode_kelas = strtoupper($request->kode_matkul)."/kelas/0".$request->kode_kelas;
+		$kode_kelas = strtoupper($request->kode_matkul)."".$request->kode_kelas;
 		$kode_matkul = strtoupper($request->kode_matkul);
 		$nama_matkul = $request->nama_matkul;
 		$tahun = $request->tahun;
@@ -143,5 +142,4 @@ class KelasController extends Controller
 		}
 
 	}
->>>>>>> 660c5effee86a66bd494f705940d0ebba124a3fe
 }

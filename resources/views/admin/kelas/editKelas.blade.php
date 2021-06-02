@@ -60,14 +60,14 @@
 				<select name="kode_kelas" class="form-select" aria-label="Default select example">
 					<?php  
 
-					$kk = range('1', '5');
+					$kk = range('A', 'E');
 					$kkubah = substr($kelas->kode_kelas, -1);
 
 					foreach ($kk as $kkel) {
 						if ($kkel == $kkubah) {
-							echo "<option value='$kkel' selected='selected'>0$kkel</option>";	
+							echo "<option value='$kkel' selected='selected'>$kkel</option>";	
 						}else{
-							echo "<option value='$kkel'>0$kkel</option>";
+							echo "<option value='$kkel'>$kkel</option>";
 						}				
 					}
 

@@ -61,10 +61,10 @@
 					<option value=''>--</option>
 					<?php  
 
-					$kk = range('1', '5');
+					$kk = range('A', 'E');
 
 					foreach ($kk as $kkel) {
-						echo "<option value='$kkel'>0$kkel</option>";
+						echo "<option value='$kkel'>$kkel</option>";
 					}
 
 					?>
