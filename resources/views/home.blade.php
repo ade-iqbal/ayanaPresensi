@@ -55,7 +55,7 @@
                         <td class="text-center">{{$kls->semester}}</td>
                         <td class="text-center">{{$kls->sks}}</td>
                         <td class="text-center">
-                            <a class="btn btn-outline-warning mb-2" href="">Edit</a>
+                            <a class="btn btn-outline-warning mb-2" href="/ayanaPresensi/public/kelas/{{$kls->id}}/get">Edit</a>
                             <a class="btn btn-outline-primary" href="/kelas/{{$kls->id}}/detail">Detail</a>
                         </td>
                     </tr>
