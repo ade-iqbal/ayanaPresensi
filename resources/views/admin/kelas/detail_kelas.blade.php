@@ -58,7 +58,7 @@
             </table>
         </div>
         <div class="card-body mt-3">
-            <a class="btn btn-success mb-3 float-right" href="">Tambah Pertemuan</a>
+            <a class="btn btn-success mb-3 float-right" href="/kelas/pertemuan/tambah/{{$kelas->id}}">Tambah Pertemuan</a>
             <table id="example-2" class="display table-striped" style="width:100%">
                 <thead>
                     <tr>
@@ -70,10 +70,10 @@
                 <tbody>
                     @foreach($pertemuan as $ptr)
                     <tr>
-                        <td class="text-center">{{$loop->iteration}}.</td>
+                        <td class="text-center">{{$ptr->pertemuan_ke}}</td>
                         <td>{{date("d-m-Y", strtotime($ptr->tanggal))}}</td>
                         <td class="text-center">
-                            <a class="btn btn-outline-primary" href="">Detail</a>
+                            <a class="btn btn-outline-primary" href="/kelas/pertemuan/{{$kelas->id}}/{{$ptr->id}}">Detail</a>
                         </td>
                     </tr>
                     @endforeach
