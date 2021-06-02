@@ -1,70 +1,69 @@
 <!doctype html>
 <html lang="en">
     <head>
-            <!-- Required meta tags -->
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Login | Ayana Presensi</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-            <!-- Bootstrap CSS -->
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-            <script src="https://kit.fontawesome.com/a5efd35989.js" crossorigin="anonymous"></script>
-            <link rel="stylesheet" href="{{ asset('css/template_utama.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/login.css') }}">
-            
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
-            <title>Login - Ayana Presensi</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <link rel="stylesheet" href="{{asset('login-form/css/style.css')}}">
+
     </head>
-    <body>
-        <div class="container mt-5">
-            <div class="row justify-content-center mt-5">
-                <div class="col-md-8 mt-5">
-                    <div class="card mt-5 shadow rounded">
-                        <div class="card-header">{{ __('Login') }}</div>
-
-                        <div class="card-body">
-                            <form method="POST" action="{{ route('login') }}">
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<div class="wrap d-md-flex shadow-lg">
+						<div class="img"></div>
+                        <div class="login-wrap p-4 p-md-5">
+                            <div class="d-flex">
+                                <div class="w-100">
+                                    <h3 class="mb-4">Login</h3>
+                                </div>
+                            </div>
+                            <form method="POST" action="{{ route('login') }}" class="signin-form">
                                 @csrf
+                                <div class="form-group mb-3">
+                                    <label class="label" for="username">Username</label>
+                                    <input id="username" name="username" type="text" class="form-control @error('username') is-invalid @enderror" placeholder="Username" value="{{ old('username') }}" required>
 
-                                <div class="form-group row">
-                                    <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
+                                    @error('username')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
 
-                                    <div class="col-md-6">
-                                        <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required>
-
-                                        @error('username')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
                                 </div>
+                                <div class="form-group mb-3">
+                                    <label class="label" for="password">Password</label>
+                                    <input id="password" name="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" required>
 
-                                <div class="form-group row mt-3">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
 
-                                    <div class="col-md-6">
-                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required>
-
-                                        @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
                                 </div>
-
-                                <div class="form-group row mb-0 mt-3">
-                                    <div class="col-md-8 offset-md-4">
-                                        <button type="submit" class="btn btn-primary">
-                                            {{ __('Login') }}
-                                        </button>
-                                    </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success rounded submit px-3">Login</button>
                                 </div>
                             </form>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </body>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{asset('login-form/js/jquery.min.js')}"></script>
+    <script src="{{asset('login-form/js/popper.js')}}"></script>
+    <script src="{{asset('login-form/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('login-form/js/main.js')}}"></script>
+
+	</body>
 </html>

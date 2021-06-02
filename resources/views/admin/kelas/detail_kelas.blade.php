@@ -1,6 +1,6 @@
 @extends('layouts/app')
 
-@section('title', 'Kelas-Ayana Presensi')
+@section('title', 'Kelas | Ayana Presensi')
 
 @section('content')
     <div class="card">
