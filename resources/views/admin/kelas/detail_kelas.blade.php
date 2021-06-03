@@ -67,7 +67,12 @@
                 <tbody>
                     @foreach($pertemuan as $ptr)
                     <tr>
-                        <td class="text-center">{{$ptr->pertemuan_ke}}</td>
+                        <td class="text-center">
+                            @if($ptr->pertemuan_ke==8) UTS
+                            @elseif($ptr->pertemuan_ke==16) UAS
+                            @else {{$ptr->pertemuan_ke}}
+                            @endif
+                        </td>
                         <td>{{date("d-m-Y", strtotime($ptr->tanggal))}}</td>
                         <td>{{$ptr->materi}}</td>
                         <td class="text-center">

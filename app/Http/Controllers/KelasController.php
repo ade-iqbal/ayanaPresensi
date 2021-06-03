@@ -36,10 +36,12 @@ class KelasController extends Controller
 			'materi' => $request->materi,
 		]);
 
-        return redirect()->route('admin.kelas.detail', [$id]);
+        return redirect('/kelas/'.$id.'/detail');
     }
 
     public function detail_pertemuan($id_kelas, $id_pertemuan){
+		$kelas = Kelas::find($id_kelas);
+		$pertemuan = Pertemuan::find($id_pertemuan);
         $data_mhs = Mahasiswa::join('krs', 'krs.mahasiswa_id', '=', 'mahasiswa.id')
                                 ->leftjoin('absensi', 'krs.id', '=', 'absensi.krs_id')
                                 ->where('krs.kelas_id', $id_kelas)
@@ -48,7 +50,7 @@ class KelasController extends Controller
                                     ->orWhereNull('absensi.pertemuan_id');
                                 })
                                 ->get();
-        return view('admin.pertemuan.lihat_pertemuan', compact('data_mhs'));
+        return view('admin.pertemuan.lihat_pertemuan', compact('kelas', 'pertemuan', 'data_mhs', 'id_kelas'));
     }
 
 
@@ -61,7 +63,8 @@ class KelasController extends Controller
 		return view('admin.kelas.editKelas',compact('dtkelas'));
 
 	}
-	public function edit(Request $request){
+
+	public function update_kelas(Request $request){
 
 		$id_kelas = $request->id_kelas;
 		$kode_kelas = strtoupper($request->kode_matkul)."".$request->kode_kelas;
@@ -92,10 +95,10 @@ class KelasController extends Controller
 
 			if ($edit) {
 				$pesan = "Kelas Berhasil Diubah";
-				return view('admin.kelas.editKelas',compact('pesan','dtkelas'));
+				return redirect('/home')->with('pesan', $pesan);
 			}else{
 				$pesann = "Tidak Ada Data yang Diubah";
-				return view('admin.kelas.editKelas',compact('pesann','dtkelas'));
+				return redirect('/home')->with('pesann', $pesann);
 			}
 
 		}else{
@@ -103,7 +106,7 @@ class KelasController extends Controller
 			->where('id','=',$id_kelas);
 
 			$pesann = "Kelas tidak Berhasil Ditambahkan, Karena Kelas dengan Kode Kelas, Tahun dan Semester yang Sama Sudah Ada";
-			return view('admin.kelas.editKelas',compact('pesann','dtkelas'));
+			return redirect('/home')->with('pesann', $pesann);
 		}
 
 	}
@@ -132,14 +135,14 @@ class KelasController extends Controller
 			]);	
 			if ($tambah) {
 				$pesan = "Kelas Berhasil Ditambahkan";
-				return view('admin.kelas.form_tambah',compact('pesan'));
+				return redirect()->back()->with('pesan', $pesan);
 			}else{
 				$pesann = "Kelas tidak Berhasil Ditambahkan";
-				return view('admin.kelas.form_tambah',compact('pesann'));
+				return redirect()->back()->with('pesann', $pesann);
 			}
 		}else{
 			$pesann = "Kelas tidak Berhasil Ditambahkan, Karena Kelas dengan Kode Kelas, Tahun dan Semester yang Sama Sudah Ada";
-			return view('admin.kelas.form_tambah',compact('pesann'));
+			return redirect()->back()->with('pesann', $pesann);
 		}
 
 	}

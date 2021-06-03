@@ -20,30 +20,19 @@
 			</symbol>
 		</svg>
 
-		<?php  
+		@if(session('pesan'))
+			<div class="alert alert-success d-flex align-items-center" role="alert">
+				<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+				<div>{{session('pesan')}}</div>
+			</div>
+		@endif	
 
-		if (isset($_POST['submit'])) {
-			if (isset($pesan)) { ?>
-				<div class="alert alert-success d-flex align-items-center" role="alert">
-					<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-					<div>
-						<?php echo "$pesan"; ?>
-					</div>
-				</div>
-				<?php
-			}
-			if (isset($pesann)) { ?>
-				<div class="alert alert-danger d-flex align-items-center" role="alert">
-					<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-					<div>
-						<?php echo "$pesann"; ?> 
-					</div>
-				</div>
-
-				<?php
-			}
-		}
-		?>
+		@if(session('pesann'))
+			<div class="alert alert-danger d-flex align-items-center" role="alert">
+				<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+				<div>{{session('pesann')}}</div>
+			</div>
+		@endif
 
 		<form action="/simpanKelas" method="post" class="row g-2">
 			{{ csrf_field() }}

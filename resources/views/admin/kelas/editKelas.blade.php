@@ -19,30 +19,7 @@
 			</symbol>
 		</svg>	
 
-			<h1>Ubah Kelas</h1>
-
-		<?php  
-
-		if (isset($pesan)) { ?>
-			<div class="alert alert-success d-flex align-items-center" role="alert">
-				<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-				<div>
-					<?php echo "$pesan"; ?>
-				</div>
-			</div>
-			<?php
-		}
-		if (isset($pesann)) { ?>
-			<div class="alert alert-danger d-flex align-items-center" role="alert">
-				<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-				<div>
-					<?php echo "$pesann"; ?> 
-				</div>
-			</div>
-			
-			<?php
-		}
-		?>	
+		<h1>Ubah Kelas</h1>
 
 		@foreach($dtkelas as $kelas)
 		<form action="/editKelas" method="post" class="row g-2">

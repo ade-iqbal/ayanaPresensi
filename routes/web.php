@@ -38,7 +38,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
 	Route::post('/simpanKelas', 'KelasController@store_kelas');
     Route::get('/kelas/{id}/detail', 'KelasController@detail_kelas');
     Route::get('/kelas/{id}/edit', 'KelasController@form_edit_kelas');
-    Route::post('/editKelas', 'KelasController@edit');
+    Route::post('/editKelas', 'KelasController@update_kelas');
     
     Route::get('/kelas/tambah', 'KelasController@form_tambah')->name('admin.kelas.tambah');
     Route::get('/kelas/pertemuan/tambah/{id}', 'KelasController@tambah_pertemuan');

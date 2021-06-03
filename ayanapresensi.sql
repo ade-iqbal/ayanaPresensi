@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2021 at 10:31 AM
+-- Generation Time: Jun 03, 2021 at 12:29 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -81,50 +81,51 @@ CREATE TABLE `kelas` (
 --
 
 INSERT INTO `kelas` (`id`, `kode_kelas`, `kode_matkul`, `nama_matkul`, `tahun`, `semester`, `sks`) VALUES
-(1, 'SSE110/kuliah/01', 'SSE110', 'Bahasa Inggris', 2021, 1, 2),
-(2, 'EKM101/kuliah/01', 'EKM101', 'Pengetahuan Bisnis', 2021, 1, 2),
-(3, 'HKU110/kuliah/01', 'HKU110', 'Pendidikan Agama', 2021, 1, 3),
-(4, 'PAM111/kuliah/01', 'PAM111', 'Aljabar Linear', 2021, 1, 3),
-(5, 'TSI101/kuliah/01', 'TSI101', 'Pengantar Sistem Informasi', 2021, 1, 3),
-(6, 'TSI103/kuliah/01', 'TSI103', 'Dasar-Dasar Pemrograman', 2021, 1, 3),
-(7, 'EKM103/kuliah/01', 'EKM103', 'Dasar-Dasar Manajemen', 2021, 1, 2),
-(8, 'TSI105/kuliah/01', 'TSI105', 'Praktikum Dasar-Dasar Pemrograman', 2021, 1, 1),
-(9, 'TSI104/kuliah/01', 'TSI104', 'Arsitektur dan Organisasi Komputer', 2021, 2, 3),
-(10, 'EKM202/kuliah/01', 'EKM202', 'Teori dan Perilaku Organisasi', 2021, 2, 2),
-(11, 'PAM214/kuliah/01', 'PAM214', 'Matematika Diskrit', 2021, 2, 3),
-(12, 'TSI108/kuliah/01', 'TSI108', 'Praktikum Struktur Data dan Algoritma', 2021, 2, 1),
-(13, 'TSI106/kuliah/01', 'TSI106', 'Sistem Informasi Manajemen', 2021, 2, 4),
-(14, 'PAM212/kuliah/01', 'PAM212', 'Kalkulus', 2021, 2, 3),
-(15, 'TSI102/kuliah/01', 'TSI102', 'Struktur Data dan Algoritma', 2021, 2, 2),
-(16, 'EKM303/kuliah/01', 'EKM303', 'Analisis Proses Bisnis', 2021, 3, 4),
-(17, 'TSI203/kuliah/01', 'TSI203', 'Bahasa Pemrograman Lanjut', 2021, 3, 3),
-(18, 'TSI207/kuliah/01', 'TSI207', 'Dasar Infrastuktur Teknologi', 2021, 3, 4),
-(19, 'TSI205/kuliah/01', 'TSI205', 'Manajemen Basis Data', 2021, 3, 3),
-(20, 'TSI209/kuliah/01', 'TSI209', 'Praktikum Bahasa Pemrograman Lanjut', 2021, 3, 1),
-(21, 'TSI211/kuliah/01', 'TSI211', 'Praktikum SIG', 2021, 3, 1),
-(22, 'TSI201/kuliah/01', 'TSI201', 'Sistem Informasi Geografi', 2021, 3, 3),
-(23, 'SSE110/kuliah/02', 'SSE110', 'Bahasa Inggris', 2021, 1, 2),
-(24, 'EKM101/kuliah/02', 'EKM101', 'Pengetahuan Bisnis', 2021, 1, 2),
-(25, 'HKU110/kuliah/02', 'HKU110', 'Pendidikan Agama', 2021, 1, 3),
-(26, 'PAM111/kuliah/02', 'PAM111', 'Aljabar Linear', 2021, 1, 3),
-(27, 'TSI101/kuliah/02', 'TSI101', 'Pengantar Sistem Informasi', 2021, 1, 3),
-(28, 'TSI103/kuliah/02', 'TSI103', 'Dasar-Dasar Pemrograman', 2021, 1, 3),
-(29, 'EKM103/kuliah/02', 'EKM103', 'Dasar-Dasar Manajemen', 2021, 1, 2),
-(30, 'TSI105/kuliah/02', 'TSI105', 'Praktikum Dasar-Dasar Pemrograman', 2021, 1, 1),
-(31, 'TSI104/kuliah/02', 'TSI104', 'Arsitektur dan Organisasi Komputer', 2021, 2, 3),
-(32, 'EKM202/kuliah/02', 'EKM202', 'Teori dan Perilaku Organisasi', 2021, 2, 2),
-(33, 'PAM214/kuliah/02', 'PAM214', 'Matematika Diskrit', 2021, 2, 3),
-(34, 'TSI108/kuliah/02', 'TSI108', 'Praktikum Struktur Data dan Algoritma', 2021, 2, 1),
-(35, 'TSI106/kuliah/02', 'TSI106', 'Sistem Informasi Manajemen', 2021, 2, 4),
-(36, 'PAM212/kuliah/02', 'PAM212', 'Kalkulus', 2021, 2, 3),
-(37, 'TSI102/kuliah/02', 'TSI102', 'Struktur Data dan Algoritma', 2021, 2, 2),
-(38, 'EKM303/kuliah/02', 'EKM303', 'Analisis Proses Bisnis', 2021, 3, 4),
-(39, 'TSI203/kuliah/02', 'TSI203', 'Bahasa Pemrograman Lanjut', 2021, 3, 3),
-(40, 'TSI207/kuliah/02', 'TSI207', 'Dasar Infrastuktur Teknologi', 2021, 3, 4),
-(41, 'TSI205/kuliah/02', 'TSI205', 'Manajemen Basis Data', 2021, 3, 3),
-(42, 'TSI209/kuliah/02', 'TSI209', 'Praktikum Bahasa Pemrograman Lanjut', 2021, 3, 1),
-(43, 'TSI211/kuliah/02', 'TSI211', 'Praktikum SIG', 2021, 3, 1),
-(44, 'TSI201/kuliah/02', 'TSI201', 'Sistem Informasi Geografi', 2021, 3, 3);
+(1, 'SSE110A', 'SSE110', 'Bahasa Inggris', 2021, 1, 2),
+(2, 'EKM101A', 'EKM101', 'Pengetahuan Bisnis', 2021, 1, 2),
+(3, 'HKU110A', 'HKU110', 'Pendidikan Agama', 2021, 1, 3),
+(4, 'PAM111A', 'PAM111', 'Aljabar Linear', 2021, 1, 3),
+(5, 'TSI101A', 'TSI101', 'Pengantar Sistem Informasi', 2021, 1, 3),
+(6, 'TSI103A', 'TSI103', 'Dasar-Dasar Pemrograman', 2021, 1, 3),
+(7, 'EKM103A', 'EKM103', 'Dasar-Dasar Manajemen', 2021, 1, 2),
+(8, 'TSI105A', 'TSI105', 'Praktikum Dasar-Dasar Pemrograman', 2021, 1, 1),
+(9, 'TSI104A', 'TSI104', 'Arsitektur dan Organisasi Komputer', 2021, 2, 3),
+(10, 'EKM202A', 'EKM202', 'Teori dan Perilaku Organisasi', 2021, 2, 2),
+(11, 'PAM214A', 'PAM214', 'Matematika Diskrit', 2021, 2, 3),
+(12, 'TSI108A', 'TSI108', 'Praktikum Struktur Data dan Algoritma', 2021, 2, 1),
+(13, 'TSI106A', 'TSI106', 'Sistem Informasi Manajemen', 2021, 2, 4),
+(14, 'PAM212A', 'PAM212', 'Kalkulus', 2021, 2, 3),
+(15, 'TSI102A', 'TSI102', 'Struktur Data dan Algoritma', 2021, 2, 2),
+(16, 'EKM303A', 'EKM303', 'Analisis Proses Bisnis', 2021, 1, 4),
+(17, 'TSI203A', 'TSI203', 'Bahasa Pemrograman Lanjut', 2021, 1, 3),
+(18, 'TSI207A', 'TSI207', 'Dasar Infrastuktur Teknologi', 2021, 1, 4),
+(19, 'TSI205A', 'TSI205', 'Manajemen Basis Data', 2021, 1, 3),
+(20, 'TSI209A', 'TSI209', 'Praktikum Bahasa Pemrograman Lanjut', 2021, 1, 1),
+(21, 'TSI211A', 'TSI211', 'Praktikum SIG', 2021, 1, 1),
+(22, 'TSI201A', 'TSI201', 'Sistem Informasi Geografi', 2021, 1, 3),
+(23, 'SSE110B', 'SSE110', 'Bahasa Inggris', 2021, 1, 2),
+(24, 'EKM101B', 'EKM101', 'Pengetahuan Bisnis', 2021, 1, 2),
+(25, 'HKU110B', 'HKU110', 'Pendidikan Agama', 2021, 1, 3),
+(26, 'PAM111B', 'PAM111', 'Aljabar Linear', 2021, 1, 3),
+(27, 'TSI101B', 'TSI101', 'Pengantar Sistem Informasi', 2021, 1, 3),
+(28, 'TSI103B', 'TSI103', 'Dasar-Dasar Pemrograman', 2021, 1, 3),
+(29, 'EKM103B', 'EKM103', 'Dasar-Dasar Manajemen', 2021, 1, 2),
+(30, 'TSI105B', 'TSI105', 'Praktikum Dasar-Dasar Pemrograman', 2021, 1, 1),
+(31, 'TSI104B', 'TSI104', 'Arsitektur dan Organisasi Komputer', 2021, 2, 3),
+(32, 'EKM202B', 'EKM202', 'Teori dan Perilaku Organisasi', 2021, 2, 2),
+(33, 'PAM214B', 'PAM214', 'Matematika Diskrit', 2021, 2, 3),
+(34, 'TSI108B', 'TSI108', 'Praktikum Struktur Data dan Algoritma', 2021, 2, 1),
+(35, 'TSI106B', 'TSI106', 'Sistem Informasi Manajemen', 2021, 2, 4),
+(36, 'PAM212B', 'PAM212', 'Kalkulus', 2021, 2, 3),
+(37, 'TSI102B', 'TSI102', 'Struktur Data dan Algoritma', 2021, 2, 2),
+(38, 'EKM303B', 'EKM303', 'Analisis Proses Bisnis', 2021, 1, 4),
+(39, 'TSI203B', 'TSI203', 'Bahasa Pemrograman Lanjut', 2021, 1, 3),
+(40, 'TSI207B', 'TSI207', 'Dasar Infrastuktur Teknologi', 2021, 1, 4),
+(41, 'TSI205B', 'TSI205', 'Manajemen Basis Data', 2021, 1, 3),
+(42, 'TSI209B', 'TSI209', 'Praktikum Bahasa Pemrograman Lanjut', 2021, 1, 1),
+(43, 'TSI211B', 'TSI211', 'Praktikum SIG', 2021, 1, 1),
+(44, 'TSI201B', 'TSI201', 'Sistem Informasi Geografi', 2021, 1, 3),
+(45, 'SIN338A', 'SIN338', 'Kecakapan Antar Personal', 2021, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -149,7 +150,8 @@ INSERT INTO `krs` (`id`, `kelas_id`, `mahasiswa_id`) VALUES
 (6, 41, 1),
 (7, 42, 1),
 (8, 43, 1),
-(9, 44, 1);
+(9, 44, 1),
+(10, 38, 4);
 
 -- --------------------------------------------------------
 
@@ -223,19 +225,23 @@ CREATE TABLE `pertemuan` (
   `id` int(10) UNSIGNED NOT NULL,
   `kelas_id` int(11) NOT NULL,
   `pertemuan_ke` int(11) NOT NULL,
-  `tanggal` date NOT NULL
+  `tanggal` date NOT NULL,
+  `materi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `pertemuan`
 --
 
-INSERT INTO `pertemuan` (`id`, `kelas_id`, `pertemuan_ke`, `tanggal`) VALUES
-(1, 38, 1, '2021-05-05'),
-(2, 38, 2, '2021-06-07'),
-(3, 38, 3, '2021-06-12'),
-(4, 39, 1, '2021-06-01'),
-(5, 39, 2, '2021-06-07');
+INSERT INTO `pertemuan` (`id`, `kelas_id`, `pertemuan_ke`, `tanggal`, `materi`) VALUES
+(1, 38, 1, '2021-05-05', 'Materi 1'),
+(2, 38, 2, '2021-06-07', 'Materi 2'),
+(3, 38, 3, '2021-06-12', 'Materi 3'),
+(4, 39, 1, '2021-06-01', 'Materi 1'),
+(5, 39, 2, '2021-06-07', 'Materi 2'),
+(15, 38, 4, '2021-06-10', 'Materi 4'),
+(16, 38, 8, '2021-06-01', 'UTS'),
+(17, 38, 16, '2021-06-24', 'UAS');
 
 -- --------------------------------------------------------
 
@@ -261,11 +267,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `role`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, '198201182008121002', 'admin', 'Dadidu', 'dadidu@gmail.com', NULL, '$2y$10$VzUdr8rDVvZl4z4ncNnXr.N7mbbD/i1MGlq2u5FhRX/K5ju.BXIji', '4YpHQg1su5OyGt0U8W7cQPqfdbOAfYKU0Lrc9GFiYTEjioIt1mJUCW4hNkQm', '2021-05-31 02:34:01', '2021-05-31 02:34:01'),
-(2, '1911522029', 'mahasiswa', 'Arif Roska Perdana', 'arifroska@gmail.com', NULL, '$2y$10$AKYPaHz9V2Vp5Ie8MBNsDeREoTQ/RTV9yu8yoUPOw/ZrkxBMmEzgG', 'NgsUR1ZSXg9kXeGNexg8feOrtRky4OLYUI8EkNfqbGGjuhImCfbCqAHPdNx4', '2021-05-31 02:36:57', '2021-05-31 02:38:10'),
-(3, '1911521025', 'mahasiswa', 'Ade Iqbal', 'adeiqbal@gmail.com', NULL, '$2y$10$RuTjta6RMk8eylUm1Y8hdelnG1/6LAU52K0tmtP3cbNnIdNR.dNay', 'bno4Zk8YBvQ3lydZooS5oaRtYgAPXsPRLY3TCcE14A7BaL0XvDRf7ESjLVOA', '2021-05-31 02:41:03', '2021-05-31 02:41:03'),
-(4, '1911522003', 'mahasiswa', 'Radhian Wahyu Elhaq', 'radhianwahyu@gmail.com', NULL, '$2y$10$FKvm1Xp8FAIYvqXYLs0.suBKx6TUDOOm/Dm.dvCeZlQ91YjTPFbYK', 'PoO5HTV1FGEls2SCOD5yj5h0AhYEFSiaEEMbuu1tiInzYtUWxzGmmNc2dXyg', '2021-05-31 02:48:29', '2021-05-31 02:48:29'),
-(5, '1911522002', 'mahasiswa', 'Untung Jamari', 'untungjamari@gmail.com', NULL, '$2y$10$n9GvMchk4mXQ9qYkXUxRTOJxll9XiCm0Bp2Aths0hCXqqSxp0..Ie', 'Qn9ViiMHwmX9QbiQshHCtVgwmIk7jJuxHagWfn1x5qH0hDxJqE4LAmOSblqK', '2021-05-31 02:49:29', '2021-05-31 02:49:29');
+(1, '198201182008121002', 'admin', 'Dadidu', 'dadidu@gmail.com', NULL, '$2y$10$VzUdr8rDVvZl4z4ncNnXr.N7mbbD/i1MGlq2u5FhRX/K5ju.BXIji', 'DPfbUS2TqKAYh7UXSOqEtqJDOhDnPGcyaAH6VfNG5VlG1VjJfoxhvQAXMuGK', '2021-05-31 02:34:01', '2021-05-31 02:34:01'),
+(2, '1911522029', 'mahasiswa', 'Arif Roska Perdana', 'arifroska@gmail.com', NULL, '$2y$10$AKYPaHz9V2Vp5Ie8MBNsDeREoTQ/RTV9yu8yoUPOw/ZrkxBMmEzgG', '5Qr9N4nT0HFDfIFV75lQpje0BCMLFuRi5qOr1u3b9XpsoW8ZrfO7BjNpeoYS', '2021-05-31 02:36:57', '2021-05-31 02:38:10'),
+(3, '1911521025', 'mahasiswa', 'Ade Iqbal', 'adeiqbal@gmail.com', NULL, '$2y$10$RuTjta6RMk8eylUm1Y8hdelnG1/6LAU52K0tmtP3cbNnIdNR.dNay', 'MKGMA1QKobuB47fOeED4XLZoS3YDJpQxZLIp8nEnRinlqoYi30tjSBENbR5M', '2021-05-31 02:41:03', '2021-05-31 02:41:03'),
+(4, '1911522003', 'mahasiswa', 'Radhian Wahyu Elhaq', 'radhianwahyu@gmail.com', NULL, '$2y$10$FKvm1Xp8FAIYvqXYLs0.suBKx6TUDOOm/Dm.dvCeZlQ91YjTPFbYK', 'Rf1WA4ytPtGmD6tgWbE6W8oHGg7GFwoGKebszxTG9WLDbtdLTWFiW3Zo0qgU', '2021-05-31 02:48:29', '2021-05-31 02:48:29'),
+(5, '1911522002', 'mahasiswa', 'Untung Jamari', 'untungjamari@gmail.com', NULL, '$2y$10$n9GvMchk4mXQ9qYkXUxRTOJxll9XiCm0Bp2Aths0hCXqqSxp0..Ie', 'IlySFF1SgIm8dd5gtJZ6lFc2xtOC46vuMzbYEQrAmJmymE7Ny43PkESsx2Xr', '2021-05-31 02:49:29', '2021-05-31 02:49:29');
 
 --
 -- Indexes for dumped tables
@@ -347,13 +353,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `kelas`
 --
 ALTER TABLE `kelas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `krs`
 --
 ALTER TABLE `krs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `mahasiswa`
@@ -371,7 +377,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pertemuan`
 --
 ALTER TABLE `pertemuan`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `users`
