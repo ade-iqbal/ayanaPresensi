@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Krs extends Model
 {
     
+    public $timestamps = false;
     protected $table = "krs";
     protected $fillable = ["kelas_id", "mahasiswa_id"];
 

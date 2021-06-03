@@ -47,4 +47,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
 
     Route::post('/upload/{krs}/{pertemuan}', 'AbsensiController@upload');
     
+    Route::post('/kelas/peserta/{id}/store', 'KrsController@store');
+    Route::get('/kelas/peserta/{id}/destroy', 'KrsController@destroy');
+
 });

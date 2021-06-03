@@ -12,11 +12,14 @@ class KelasController extends Controller
 {
     public function detail_kelas($id){
         $kelas = Kelas::find($id);
-        $mahasiswa = Krs::where('kelas_id', $id)->get();
+        $krs_mahasiswa = Krs::where('kelas_id', $id)->get();
         $pertemuan = Pertemuan::where('kelas_id', $id)->get();
+		$mahasiswa = Mahasiswa::select('mahasiswa.id', 'mahasiswa.nama')
+			->whereNOTIn('mahasiswa.id', function($query) use($id){
+			$query->select('krs.mahasiswa_id')->from('krs')->where('krs.kelas_id', $id);
+			})->get();
 
-
-        return view('admin.kelas.detail_kelas', compact('kelas', 'mahasiswa', 'pertemuan'));
+        return view('admin.kelas.detail_kelas', compact('kelas', 'krs_mahasiswa', 'pertemuan', 'mahasiswa'));
     }
 
     public function form_tambah(){

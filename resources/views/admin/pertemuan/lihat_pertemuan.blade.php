@@ -3,6 +3,7 @@
 @section('title', 'Lihat Pertemuan | Ayana Presensi')
 
 @section('content')
+
   <div class="card">
         <div class="card-header text-dark bg-light">
             <h3>{{$kelas->nama_matkul}}</h3>
