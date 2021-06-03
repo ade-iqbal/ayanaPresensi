@@ -44,4 +44,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     Route::get('/kelas/pertemuan/tambah/{id}', 'KelasController@tambah_pertemuan');
     Route::post('/kelas/pertemuan/store/{id}', 'KelasController@store_pertemuan');
     Route::get('/kelas/pertemuan/{id_kelas}/{id_pertemuan}', 'KelasController@detail_pertemuan');
+
+    Route::post('/upload/{krs}/{pertemuan}', 'AbsensiController@upload');
+    
 });

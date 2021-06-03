@@ -30,7 +30,15 @@
             <a class="btn btn-outline-primary" href="/kelas/{{$id_kelas}}/detail">Kembali</a>
         </div>
         <div class="card-body mt-3">
-            <a class="btn btn-success mb-3 float-right" href="">Upload CVS</a>
+            <form action="/upload/{{$pertemuan->id}}/{{$id_kelas}}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="form-group">
+                    <label for="upload-file">Upload CSV</label>
+                    <input type="file" name="upload-file" class="form-control">
+                </div>
+                <input class="btn btn-success" type="submit" value="Upload CSV" name="submit"> 
+            </form>
+            <!-- <a class="btn btn-success mb-3 float-right" href="/upload/{{$pertemuan->id}}/{{$id_kelas}}">Upload CVS</a> -->
             <table id="example-2" class="display table-striped" style="width:100%">
                 <thead>
                     <tr>

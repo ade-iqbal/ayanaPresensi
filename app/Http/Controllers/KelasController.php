@@ -50,6 +50,7 @@ class KelasController extends Controller
                                     ->orWhereNull('absensi.pertemuan_id');
                                 })
                                 ->get();
+								
         return view('admin.pertemuan.lihat_pertemuan', compact('kelas', 'pertemuan', 'data_mhs', 'id_kelas'));
     }
 
