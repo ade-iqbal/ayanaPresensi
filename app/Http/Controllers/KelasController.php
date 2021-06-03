@@ -27,18 +27,19 @@ class KelasController extends Controller
         return view('admin.pertemuan.tambah_pertemuan', compact('id'));
     }
 
-    public function store(Request $request, $id){
+    public function store_pertemuan(Request $request, $id){
         $request->request->add(['kelas_id' => $id]);
-        $pertemuan = new Pertemuan;
-        $pertemuan->kelas_id=$id;
-        $pertemuan->pertemuan_ke=$request->pertemuan_ke;
-        $pertemuan->tanggal=$request->tanggal;
-        $pertemuan->materi=$request->materi;
-        $pertemuan->save();
+        Pertemuan::create([
+			'kelas_id' => $id,
+			'pertemuan_ke' => $request->pertemuan_ke,
+			'tanggal' => $request->tanggal,
+			'materi' => $request->materi,
+		]);
+
         return redirect()->route('admin.kelas.detail', [$id]);
     }
 
-    public function detail($id_kelas, $id_pertemuan){
+    public function detail_pertemuan($id_kelas, $id_pertemuan){
         $data_mhs = Mahasiswa::join('krs', 'krs.mahasiswa_id', '=', 'mahasiswa.id')
                                 ->leftjoin('absensi', 'krs.id', '=', 'absensi.krs_id')
                                 ->where('krs.kelas_id', $id_kelas)
@@ -52,7 +53,7 @@ class KelasController extends Controller
 
 
 
-    public function getKelas($id){
+    public function form_edit_kelas($id){
 
 		$dtkelas = \App\Kelas::all()
 		->where('id','=',$id);	
@@ -106,7 +107,7 @@ class KelasController extends Controller
 		}
 
 	}
-	public function tambah(Request $request)
+	public function store_kelas(Request $request)
 	{	
 
 		$kode_kelas = strtoupper($request->kode_matkul)."".$request->kode_kelas;

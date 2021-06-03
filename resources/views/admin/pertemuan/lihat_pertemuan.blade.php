@@ -11,7 +11,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col" class="text-center">#</th>
       <th scope="col">Nama Mahasiswa</th>
       <th scope="col">Status</th>
       <th scope="col">Jam Masuk</th>
@@ -22,12 +22,12 @@
   <tbody>
   @foreach($data_mhs as $mhs)
     <tr>
-      <th scope="row">1</th>
+      <td class="text-center">{{$loop->iteration}}.</td>
       <td>{{$mhs->nama}}</td>
       <td>{{$mhs->durasi==0?'Tidak Hadir':'Hadir'}}</td>
       <td>{{$mhs->jam_masuk}}</td>
       <td>{{$mhs->jam_keluar}}</td>
-      <td>{{$mhs->durasi}}</td>
+      <td>{{floor($mhs->durasi/60)}} jam {{$mhs->durasi%60}} menit</td>
     </tr>
     @endforeach
   </tbody>

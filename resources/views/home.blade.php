@@ -8,7 +8,7 @@
     <div class="row">
         @forelse($krs_mahasiswa as $krs)
         <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="card text-center border-success mb-3" style="width: 18rem; height:10rem">
+            <div class="card img text-center border-success mb-3" style="width: 18rem; height:10rem">
                 <div class="card-body shadow">
                     <h5 class="card-title">{{$krs->nama_matkul}}</h5>
                     <p class="card-text">{{$krs->kode_kelas}}</p>
@@ -52,10 +52,10 @@
                         <td>{{$kls->kode_matkul}}</td>
                         <td>{{$kls->nama_matkul}}</td>
                         <td class="text-center">{{$kls->tahun}}</td>
-                        <td class="text-center">{{$kls->semester}}</td>
+                        <td class="text-center">{{$kls->semester%2==0 ? 'Genap' : 'Ganjil'}}</td>
                         <td class="text-center">{{$kls->sks}}</td>
                         <td class="text-center">
-                            <a class="btn btn-outline-warning mb-2" href="/ayanaPresensi/public/kelas/{{$kls->id}}/get">Edit</a>
+                            <a class="btn btn-outline-warning mb-2" href="/kelas/{{$kls->id}}/edit">Edit</a>
                             <a class="btn btn-outline-primary" href="/kelas/{{$kls->id}}/detail">Detail</a>
                         </td>
                     </tr>

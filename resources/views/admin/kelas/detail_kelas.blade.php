@@ -12,12 +12,7 @@
                     <p>Kode Kelas <span style="margin-left: 30px;">: {{$kelas->kode_kelas}}</span></p>
                 </div>
                 <div class="col-4">
-                    <p>Semester <span style="margin-left: 40px;">: {{$kelas->semester}}
-                        @if($kelas->semester%2 != 0) 
-                            (Ganjil)
-                        @else 
-                            (Genap)
-                        @endif
+                    <p>Semester <span style="margin-left: 40px;">: {{$kelas->semester%2==0 ? '(Genap)' : '(Ganjil)'}}
                     </span></p>
                 </div>
             </div>
@@ -29,6 +24,7 @@
                     <p>Sks <span style="margin-left: 82px;">: {{$kelas->sks}}</span></p>
                 </div>
             </div>
+            <a class="btn btn-outline-primary" href="/home">Kembali</a>
         </div>
         <div class="card-body">
             <a class="btn btn-success mb-3 float-right" href="">Tambah Peserta</a>
@@ -64,6 +60,7 @@
                     <tr>
                         <th class="text-center">Pertemuan Ke</th>
                         <th>Tanggal</th>
+                        <th>Materi</th>
                         <th class="text-center">Aksi</th>
                     </tr>
                 </thead>
@@ -72,6 +69,7 @@
                     <tr>
                         <td class="text-center">{{$ptr->pertemuan_ke}}</td>
                         <td>{{date("d-m-Y", strtotime($ptr->tanggal))}}</td>
+                        <td>{{$ptr->materi}}</td>
                         <td class="text-center">
                             <a class="btn btn-outline-primary" href="/kelas/pertemuan/{{$kelas->id}}/{{$ptr->id}}">Detail</a>
                         </td>

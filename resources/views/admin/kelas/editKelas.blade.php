@@ -45,7 +45,7 @@
 		?>	
 
 		@foreach($dtkelas as $kelas)
-		<form action="/ayanaPresensi/public/editKelas" method="post" class="row g-2">
+		<form action="/editKelas" method="post" class="row g-2">
 			{{ csrf_field() }}
 			<div class="col-md-12">
 				<label for="exampleFormControlInput1" class="form-label">Nama Mata Kuliah</label>

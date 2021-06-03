@@ -35,13 +35,13 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
 
     Route::get('/kelas/{id}/detail', 'KelasController@detail_kelas')->name('admin.kelas.detail');
 
-	Route::post('/simpanKelas', 'KelasController@tambah');
+	Route::post('/simpanKelas', 'KelasController@store_kelas');
     Route::get('/kelas/{id}/detail', 'KelasController@detail_kelas');
-    Route::get('/kelas/{id}/get', 'KelasController@getKelas');
+    Route::get('/kelas/{id}/edit', 'KelasController@form_edit_kelas');
     Route::post('/editKelas', 'KelasController@edit');
     
     Route::get('/kelas/tambah', 'KelasController@form_tambah')->name('admin.kelas.tambah');
     Route::get('/kelas/pertemuan/tambah/{id}', 'KelasController@tambah_pertemuan');
-    Route::post('/kelas/pertemuan/store/{id}', 'KelasController@store');
-    Route::get('/kelas/pertemuan/{id_kelas}/{id_pertemuan}', 'KelasController@detail');
+    Route::post('/kelas/pertemuan/store/{id}', 'KelasController@store_pertemuan');
+    Route::get('/kelas/pertemuan/{id_kelas}/{id_pertemuan}', 'KelasController@detail_pertemuan');
 });

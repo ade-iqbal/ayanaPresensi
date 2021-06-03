@@ -45,7 +45,7 @@
 		}
 		?>
 
-		<form action="/ayanaPresensi/public/simpanKelas" method="post" class="row g-2">
+		<form action="/simpanKelas" method="post" class="row g-2">
 			{{ csrf_field() }}
 			<div class="col-md-12">
 				<label for="exampleFormControlInput1" class="form-label">Nama Mata Kuliah</label>
@@ -58,7 +58,7 @@
 			<div class="col-md-6">
 				<label for="exampleFormControlInput1" class="form-label">Kode Kelas</label>
 				<select name="kode_kelas" class="form-select" aria-label="Default select example" required>
-					<option value=''>--</option>
+					<option value='' hidden>--</option>
 					<?php  
 
 					$kk = range('A', 'E');
@@ -74,7 +74,7 @@
 			<div class="col-md-6">
 				<label for="exampleFormControlInput1" class="form-label">Tahun</label>
 				<select name="tahun" class="form-select" aria-label="Default select example" required>
-					<option value=''>----</option>
+					<option value='' hidden>----</option>
 					<?php  
 
 					$skrng = new DateTime("today");
@@ -94,14 +94,14 @@
 			<div class="col-md-6">
 				<label for="exampleFormControlInput1" class="form-label">Semester</label>
 				<select name="semester" class="form-select" aria-label="Default select example" required>
-					<option value=''>-------------</option>
+					<option value='' hidden>-------------</option>
 					<?php 
 					$sem = 1;
 					while ($sem <= 2) {
 						if ($sem % 2 == 1) {
-							echo "<option value='$sem'>$sem (Ganjil)</option>";
+							echo "<option value='$sem'>Ganjil</option>";
 						}else{
-							echo "<option value='$sem'>$sem (Genap)</option>";		
+							echo "<option value='$sem'>Genap</option>";		
 						}
 						$sem++;
 					}

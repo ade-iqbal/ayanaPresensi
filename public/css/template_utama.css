@@ -104,3 +104,8 @@
 .bg-grey {
     background-color: #d0d7df;
 }
+
+.img {
+    background-image: url("../img/funky-lines.png") !important;
+    filter: brightness(95%);
+}

@@ -13,12 +13,7 @@
                     <p>Kode Kelas <span style="margin-left: 30px;">: {{$kelas->kode_kelas}}</span></p>
                 </div>
                 <div class="col-4">
-                    <p>Semester <span style="margin-left: 40px;">: {{$kelas->semester}}
-                        @if($kelas->semester%2 != 0) 
-                            (Ganjil)
-                        @else 
-                            (Genap)
-                        @endif
+                    <p>Semester <span style="margin-left: 40px;">: {{$kelas->semester%2==0 ? '(Genap)' : '(Ganjil)'}}
                     </span></p>
                 </div>
             </div>
@@ -30,12 +25,13 @@
                     <p>Sks <span style="margin-left: 82px;">: {{$kelas->sks}}</span></p>
                 </div>
             </div>
+            <a class="btn btn-outline-primary" href="/home">Kembali</a>
         </div>
         <div class="card-body">
             <table id="example" class="display table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Pertemuan Ke</th>
+                        <th class="text-center">Pertemuan Ke</th>
                         <th>Tanggal</th>
                         <th>Jam masuk</th>
                         <th>Jam keluar</th>
@@ -46,18 +42,12 @@
                 <tbody>
                     @foreach($pertemuan_presensi as $absensi)
                     <tr>
-                        <td>{{$absensi->pertemuan_ke}}</td>
+                        <td class="text-center">{{$absensi->pertemuan_ke}}</td>
                         <td>{{date("d-m-Y", strtotime($absensi->tanggal))}}</td>
-                        <td>{{$absensi->jam_masuk}}</td>
-                        <td>{{$absensi->jam_keluar}}</td>
+                        <td>{{$absensi->jam_masuk==NULL ? '-' : $absensi->jam_masuk}}</td>
+                        <td>{{$absensi->jam_keluar==NULL ? '-' : $absensi->jam_keluar}}</td>
                         <td>{{floor($absensi->durasi/60)}} jam {{$absensi->durasi%60}} menit</td>
-                        <td>
-                            @if($absensi->durasi == 0) 
-                                tidak hadir
-                            @else 
-                                hadir
-                            @endif
-                        </td>
+                        <td>{{$absensi->durasi == 0 ? 'Tidak Hadir' : 'Hadir'}}</td>
                     </tr>
                     @endforeach
                 </tbody>
