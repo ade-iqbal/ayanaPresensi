@@ -36,7 +36,8 @@
             @csrf
             <div class="row mb-3">
                 <div class="col-4">
-                    <select class="selectpicker form-control" name="mahasiswa_id" data-live-search="true">
+                    <select class="selectpicker form-control" name="mahasiswa_id" data-live-search="true" required>
+                        <option value="" hidden> Tidak ada mahasiswa yang dipilih </option>
                         @foreach($mahasiswa as $mhswa)
                         <option value="{{$mhswa->id}}">{{$mhswa->nama}}</option>
                         @endforeach
