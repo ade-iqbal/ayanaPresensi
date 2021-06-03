@@ -10,6 +10,8 @@
     <script src="https://kit.fontawesome.com/a5efd35989.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/template_utama.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+
+    @yield('css')
     
 
     <title>@yield('title')</title>
