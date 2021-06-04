@@ -33,6 +33,7 @@
                     <tr>
                         <th class="text-center">Pertemuan Ke</th>
                         <th>Tanggal</th>
+                        <th>Materi</th>
                         <th>Jam masuk</th>
                         <th>Jam keluar</th>
                         <th>Durasi</th>
@@ -42,8 +43,9 @@
                 <tbody>
                     @foreach($pertemuan_presensi as $absensi)
                     <tr>
-                        <td class="text-center">{{$absensi->pertemuan_ke}}</td>
+                        <td class="text-center">{{($absensi->pertemuan_ke==8) ? "UTS" : (($absensi->pertemuan_ke==16) ? "UAS" : $absensi->pertemuan_ke)}}</td>
                         <td>{{date("d-m-Y", strtotime($absensi->tanggal))}}</td>
+                        <td>{{$absensi->materi}}</td>
                         <td>{{$absensi->jam_masuk==NULL ? '-' : $absensi->jam_masuk}}</td>
                         <td>{{$absensi->jam_keluar==NULL ? '-' : $absensi->jam_keluar}}</td>
                         <td>{{floor($absensi->durasi/60)}} jam {{$absensi->durasi%60}} menit</td>

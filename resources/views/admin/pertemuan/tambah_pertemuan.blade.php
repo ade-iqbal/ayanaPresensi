@@ -16,7 +16,7 @@
             <select class="form-control @error('pertemuan_ke') is-invalid @enderror" name="pertemuan_ke">
                 <option value="" hidden>-- Masukkan Pilihan --</option>
                 @foreach($array as $ar)
-                  <option value="{{$ar}}">{{($ar==8) ? "UTS" : (($ar==16) ? "UAS" : $ar)}}</option>
+                  <option value="{{$ar}}" @if($ar == old('pertemuan_ke')) selected @endif>{{($ar==8) ? "UTS" : (($ar==16) ? "UAS" : $ar)}}</option>
                 @endforeach
             </select>
             @error('pertemuan_ke')<div class="invalid-feedback">{{ $message }}</div>@enderror
@@ -25,14 +25,14 @@
         <div class="col-md-3">
           <div class="form-group">
             <label>Tanggal Pertemuan</label>
-            <input type="date" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" placeholder="Pilih Tanggal">
+            <input type="date" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" placeholder="Pilih Tanggal" value="{{old('tanggal')}}">
             @error('tanggal')<div class="invalid-feedback">{{ $message }}</div>@enderror
           </div>
         </div>
       </div><br>
       <div class="form-group">
         <label>Materi</label>
-        <textarea class="form-control @error('materi') is-invalid @enderror" name="materi"></textarea>
+        <textarea class="form-control @error('materi') is-invalid @enderror" name="materi">{{old('materi')}}</textarea>
         @error('materi')<div class="invalid-feedback">{{ $message }}</div>@enderror
       </div><br>
       <button onclick="return confirm('Apakah anda ingin menginput data?');" type="submit" class="btn btn-primary">Simpan</button>

@@ -27,6 +27,9 @@
                 <div class="col-4">
                     <p>Sks <span style="margin-left: 82px;">: {{$kelas->sks}}</span></p>
                 </div>
+                <div class="col-4">
+                    <p>Materi <span style="margin-left: 92px;">: {{$pertemuan->materi}}</span></p>
+                </div>
             </div>
             <a class="btn btn-outline-primary" href="/kelas/{{$id_kelas}}/detail">Kembali</a>
         </div>
@@ -35,11 +38,11 @@
                 @csrf
                 <div class="form-group">
                     <label for="upload-file">Upload CSV</label>
-                    <input type="file" name="upload-file" class="form-control mb-3">
+                    <input type="file" name="upload-file" class="form-control @if(session('failed')) is-invalid @endif" required>
+                    @if(session('failed')) <div class="invalid-feedback mt-n3">{{ session('failed') }}</div> @endif
                 </div>
-                <input class="btn btn-success mb-3" type="submit" value="Upload CSV" name="submit"> 
+                <input class="btn btn-success mb-3 mt-3" type="submit" value="Upload CSV" name="submit"> 
             </form>
-            <!-- <a class="btn btn-success mb-3 float-right" href="/upload/{{$pertemuan->id}}/{{$id_kelas}}">Upload CVS</a> -->
             <table id="example-2" class="display table-striped" style="width:100%">
                 <thead>
                     <tr>

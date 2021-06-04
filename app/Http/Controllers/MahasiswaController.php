@@ -12,7 +12,7 @@ class MahasiswaController extends Controller
     public function detail_kelas($id){
         
         $kelas = Kelas::find($id);
-        $pertemuan_presensi = Kelas::select('mahasiswa.nama', 'kelas.id', 'kelas.nama_matkul', 'absensi.*', 'pertemuan.id', 'pertemuan.pertemuan_ke')
+        $pertemuan_presensi = Kelas::select('mahasiswa.nama', 'kelas.nama_matkul', 'absensi.*', 'pertemuan.*')
 						->join('krs', 'kelas.id', '=', 'krs.kelas_id')
 						->join('mahasiswa', 'krs.mahasiswa_id', '=', 'mahasiswa.id')
 						->join('pertemuan', 'kelas.id', '=', 'pertemuan.kelas_id')
@@ -22,6 +22,7 @@ class MahasiswaController extends Controller
 						})
 						->where('kelas.id', $id)
 						->where('mahasiswa.id', auth()->user()->mahasiswa->id)
+						->orderby('pertemuan.pertemuan_ke', 'ASC')
 						->get();
 
         return view('mahasiswa.detail_kelas', compact('kelas', 'pertemuan_presensi'));

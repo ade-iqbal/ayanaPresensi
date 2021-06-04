@@ -39,8 +39,8 @@ class HomeController extends Controller
 
         // jika user adalah admin
         elseif((auth()->user()->role == "admin")) {
-            $kelas = Kelas::all()->sortByDesc('tahun')
-                                ->sortByDesc('semester');
+            $kelas = Kelas::all()->sortByDesc('semester')
+                                ->sortByDesc('tahun');
             return view('home', compact('kelas'));
         }
 

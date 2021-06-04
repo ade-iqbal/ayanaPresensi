@@ -15,8 +15,10 @@ class KelasController extends Controller
         $krs_mahasiswa = Krs::where('kelas_id', $id)->get();
         $pertemuan = Pertemuan::where('kelas_id', $id)->get();
 		$mahasiswa = Mahasiswa::select('mahasiswa.id', 'mahasiswa.nama')
-			->whereNOTIn('mahasiswa.id', function($query) use($id){
-			$query->select('krs.mahasiswa_id')->from('krs')->where('krs.kelas_id', $id);
+			->whereNOTIn('mahasiswa.id', function($query) use($id, $kelas){
+			$query->select('krs.mahasiswa_id')->from('krs')
+											->join('kelas', 'krs.kelas_id', '=', 'kelas.id')
+											->where('kelas.kode_matkul', $kelas->kode_matkul);
 			})->get();
 
         return view('admin.kelas.detail_kelas', compact('kelas', 'krs_mahasiswa', 'pertemuan', 'mahasiswa'));
@@ -79,6 +81,7 @@ class KelasController extends Controller
 						})
 						->where('kelas.id', $id_kelas)
 						->where('pertemuan.id', $id_pertemuan)
+						->orderby('pertemuan.pertemuan_ke', 'ASC')
 						->get();
 								
         return view('admin.pertemuan.lihat_pertemuan', compact('kelas', 'pertemuan', 'data_mhs', 'id_kelas'));

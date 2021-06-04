@@ -17,6 +17,7 @@ class AbsensiController extends Controller
             $ekstensiFile = strtolower(end($ekstensiFile));
             if ($ekstensiFile != $ekstensiValid) {
                 print("salah");
+                return redirect('/kelas/pertemuan/'.$id_kelas.'/'.$pertemuan_id)->with('failed', 'ekstensi file yang diizinkan hanya .csv');
             } else {
                 $file = fopen($fileName, "r");
                 $skipLines = 7;
