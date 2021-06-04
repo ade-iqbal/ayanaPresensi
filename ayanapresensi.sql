@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2021 at 12:29 PM
+-- Generation Time: Jun 04, 2021 at 05:11 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -41,9 +41,12 @@ CREATE TABLE `absensi` (
 --
 
 INSERT INTO `absensi` (`id`, `krs_id`, `pertemuan_id`, `jam_masuk`, `jam_keluar`, `durasi`) VALUES
-(1, 1, 1, '10:01:07', '11:15:33', 74),
-(2, 1, 2, '13:31:00', '15:15:33', 104),
-(3, 2, 4, '13:37:04', '15:15:00', 98);
+(4, 1, 3, '02:51:00', '03:14:30', 23),
+(5, 28, 3, '02:51:37', '03:14:50', 23),
+(6, 27, 3, '02:53:18', '03:14:19', 21),
+(7, 1, 1, '02:51:00', '03:14:30', 23),
+(8, 28, 1, '02:51:37', '03:14:50', 23),
+(9, 27, 1, '02:53:18', '03:14:19', 21);
 
 -- --------------------------------------------------------
 
@@ -125,7 +128,9 @@ INSERT INTO `kelas` (`id`, `kode_kelas`, `kode_matkul`, `nama_matkul`, `tahun`, 
 (42, 'TSI209B', 'TSI209', 'Praktikum Bahasa Pemrograman Lanjut', 2021, 1, 1),
 (43, 'TSI211B', 'TSI211', 'Praktikum SIG', 2021, 1, 1),
 (44, 'TSI201B', 'TSI201', 'Sistem Informasi Geografi', 2021, 1, 3),
-(45, 'SIN338A', 'SIN338', 'Kecakapan Antar Personal', 2021, 2, 2);
+(45, 'SIN338A', 'SIN338', 'Kecakapan Antar Personal', 2021, 2, 2),
+(50, 'TSI208A', 'TSI208', 'Analisis dan Perancangan Sistem Informasi', 2021, 2, 4),
+(51, 'EKM602A', 'EKM602', 'Manajemen Perubahan', 2021, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -151,7 +156,15 @@ INSERT INTO `krs` (`id`, `kelas_id`, `mahasiswa_id`) VALUES
 (7, 42, 1),
 (8, 43, 1),
 (9, 44, 1),
-(10, 38, 4);
+(16, 9, 3),
+(17, 50, 2),
+(21, 39, 3),
+(22, 9, 2),
+(26, 18, 2),
+(27, 38, 2),
+(28, 38, 3),
+(29, 16, 4),
+(30, 9, 4);
 
 -- --------------------------------------------------------
 
@@ -172,10 +185,10 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`id`, `user_id`, `nama`, `nim`, `email`) VALUES
-(1, 3, 'Ade Iqbal', '1911521025', 'adeiqbal@gmail.com'),
-(2, 5, 'Untung Jamari', '1911522002', 'untungjamari@gmail.com'),
-(3, 4, 'Radhian Wahyu Elhaq', '1911522003', 'radhianwahyu@gmail.com'),
-(4, 2, 'Arif Roska Perdana', '1911522029', 'arifroska@gmail.com');
+(1, 3, 'Ade Iqbal', '1911521025', '1911521025_ade@student.unand.ac.id'),
+(2, 5, 'Untung Jamari', '1911522002', '1911522002_untung@student.unand.ac.id'),
+(3, 4, 'Radhian Wahyu Elhaq', '1911522003', '1911522003_radhian@student.unand.ac.id'),
+(4, 2, 'Arif Roska Perdana', '1911522029', '1911522029_arif@student.unand.ac.id');
 
 -- --------------------------------------------------------
 
@@ -241,7 +254,12 @@ INSERT INTO `pertemuan` (`id`, `kelas_id`, `pertemuan_ke`, `tanggal`, `materi`) 
 (5, 39, 2, '2021-06-07', 'Materi 2'),
 (15, 38, 4, '2021-06-10', 'Materi 4'),
 (16, 38, 8, '2021-06-01', 'UTS'),
-(17, 38, 16, '2021-06-24', 'UAS');
+(17, 38, 16, '2021-06-24', 'UAS'),
+(23, 9, 1, '2021-05-30', 'Materi 1'),
+(24, 9, 3, '2021-06-06', 'Materi 3'),
+(25, 9, 2, '2021-06-02', 'Materi 2'),
+(26, 38, 6, '2021-06-09', 'Materi 6'),
+(27, 38, 5, '2021-06-09', 'Materi 5');
 
 -- --------------------------------------------------------
 
@@ -267,11 +285,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `role`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, '198201182008121002', 'admin', 'Dadidu', 'dadidu@gmail.com', NULL, '$2y$10$VzUdr8rDVvZl4z4ncNnXr.N7mbbD/i1MGlq2u5FhRX/K5ju.BXIji', 'DPfbUS2TqKAYh7UXSOqEtqJDOhDnPGcyaAH6VfNG5VlG1VjJfoxhvQAXMuGK', '2021-05-31 02:34:01', '2021-05-31 02:34:01'),
-(2, '1911522029', 'mahasiswa', 'Arif Roska Perdana', 'arifroska@gmail.com', NULL, '$2y$10$AKYPaHz9V2Vp5Ie8MBNsDeREoTQ/RTV9yu8yoUPOw/ZrkxBMmEzgG', '5Qr9N4nT0HFDfIFV75lQpje0BCMLFuRi5qOr1u3b9XpsoW8ZrfO7BjNpeoYS', '2021-05-31 02:36:57', '2021-05-31 02:38:10'),
-(3, '1911521025', 'mahasiswa', 'Ade Iqbal', 'adeiqbal@gmail.com', NULL, '$2y$10$RuTjta6RMk8eylUm1Y8hdelnG1/6LAU52K0tmtP3cbNnIdNR.dNay', 'MKGMA1QKobuB47fOeED4XLZoS3YDJpQxZLIp8nEnRinlqoYi30tjSBENbR5M', '2021-05-31 02:41:03', '2021-05-31 02:41:03'),
-(4, '1911522003', 'mahasiswa', 'Radhian Wahyu Elhaq', 'radhianwahyu@gmail.com', NULL, '$2y$10$FKvm1Xp8FAIYvqXYLs0.suBKx6TUDOOm/Dm.dvCeZlQ91YjTPFbYK', 'Rf1WA4ytPtGmD6tgWbE6W8oHGg7GFwoGKebszxTG9WLDbtdLTWFiW3Zo0qgU', '2021-05-31 02:48:29', '2021-05-31 02:48:29'),
-(5, '1911522002', 'mahasiswa', 'Untung Jamari', 'untungjamari@gmail.com', NULL, '$2y$10$n9GvMchk4mXQ9qYkXUxRTOJxll9XiCm0Bp2Aths0hCXqqSxp0..Ie', 'IlySFF1SgIm8dd5gtJZ6lFc2xtOC46vuMzbYEQrAmJmymE7Ny43PkESsx2Xr', '2021-05-31 02:49:29', '2021-05-31 02:49:29');
+(1, '198201182008121002', 'admin', 'Dadidu', 'dadidu@gmail.com', NULL, '$2y$10$VzUdr8rDVvZl4z4ncNnXr.N7mbbD/i1MGlq2u5FhRX/K5ju.BXIji', 'NyvFsaLHOFikxi7URXyqqtT5oIz9rmU00jUpRknpOoc4FStdwvjuQUcXzRz9', '2021-05-31 02:34:01', '2021-05-31 02:34:01'),
+(2, '1911522029', 'mahasiswa', 'Arif Roska Perdana', '1911522029_arif@student.unand.ac.id', NULL, '$2y$10$AKYPaHz9V2Vp5Ie8MBNsDeREoTQ/RTV9yu8yoUPOw/ZrkxBMmEzgG', 'IhgdeE5fG4gDMPnl3V4wWRGJ0i0HjdrpNv4XlTYO6qyUAMnfMZTXeFNQdMK2', '2021-05-31 02:36:57', '2021-05-31 02:38:10'),
+(3, '1911521025', 'mahasiswa', 'Ade Iqbal', '1911521025_ade@student.unand.ac.id', NULL, '$2y$10$RuTjta6RMk8eylUm1Y8hdelnG1/6LAU52K0tmtP3cbNnIdNR.dNay', 'iZWAGRyjNKaciEYUtexaA51M7cC0Yo3DPDWAczhSWMNuc5HCgErc1ywXgrI7', '2021-05-31 02:41:03', '2021-05-31 02:41:03'),
+(4, '1911522003', 'mahasiswa', 'Radhian Wahyu Elhaq', '1911522003_radhian@student.unand.ac.id', NULL, '$2y$10$FKvm1Xp8FAIYvqXYLs0.suBKx6TUDOOm/Dm.dvCeZlQ91YjTPFbYK', 'hsoX36wsBpuGIbYpN4OntwUVM0z9s9y5QYRiqobrEO8wSPJUDqVzGdokbTyy', '2021-05-31 02:48:29', '2021-05-31 02:48:29'),
+(5, '1911522002', 'mahasiswa', 'Untung Jamari', '1911522002_untung@student.unand.ac.id', NULL, '$2y$10$n9GvMchk4mXQ9qYkXUxRTOJxll9XiCm0Bp2Aths0hCXqqSxp0..Ie', 'ZAJhbjegszQrG0flbGItmKvFp8cT3fn9rusf8YlRpWICOohqdurFxBoHbTDf', '2021-05-31 02:49:29', '2021-05-31 02:49:29');
 
 --
 -- Indexes for dumped tables
@@ -341,7 +359,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `absensi`
 --
 ALTER TABLE `absensi`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -353,13 +371,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `kelas`
 --
 ALTER TABLE `kelas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `krs`
 --
 ALTER TABLE `krs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `mahasiswa`
@@ -377,7 +395,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pertemuan`
 --
 ALTER TABLE `pertemuan`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `users`
