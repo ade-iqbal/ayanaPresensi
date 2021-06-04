@@ -69,14 +69,17 @@ class KelasController extends Controller
     public function detail_pertemuan($id_kelas, $id_pertemuan){
 		$kelas = Kelas::find($id_kelas);
 		$pertemuan = Pertemuan::find($id_pertemuan);
-        $data_mhs = Mahasiswa::join('krs', 'krs.mahasiswa_id', '=', 'mahasiswa.id')
-                                ->leftjoin('absensi', 'krs.id', '=', 'absensi.krs_id')
-                                ->where('krs.kelas_id', $id_kelas)
-                                ->where(function($query) use ($id_pertemuan){
-                                    $query->where('absensi.pertemuan_id', $id_pertemuan)
-                                    ->orWhereNull('absensi.pertemuan_id');
-                                })
-                                ->get();
+        $data_mhs = Kelas::select('mahasiswa.nama', 'kelas.id', 'kelas.nama_matkul', 'absensi.*')
+						->join('krs', 'kelas.id', '=', 'krs.kelas_id')
+						->join('mahasiswa', 'krs.mahasiswa_id', '=', 'mahasiswa.id')
+						->join('pertemuan', 'kelas.id', '=', 'pertemuan.kelas_id')
+						->leftjoin('absensi', function($query){
+							$query->on('pertemuan.id', '=', 'absensi.pertemuan_id');
+							$query->on('krs.id', '=', 'absensi.krs_id');
+						})
+						->where('kelas.id', $id_kelas)
+						->where('pertemuan.id', $id_pertemuan)
+						->get();
 								
         return view('admin.pertemuan.lihat_pertemuan', compact('kelas', 'pertemuan', 'data_mhs', 'id_kelas'));
     }

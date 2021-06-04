@@ -1,6 +1,6 @@
 @extends('../../layouts/app')
 
-@section('title', 'Tambah Pertemuan')
+@section('title', 'Tambah Pertemuan | Ayana Presensi')
 
 @section('title_halaman', 'Tambah Pertemuan')
 

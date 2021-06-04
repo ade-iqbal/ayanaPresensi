@@ -81,8 +81,8 @@
                         <td class="text-center">{{$kls->semester%2==0 ? 'Genap' : 'Ganjil'}}</td>
                         <td class="text-center">{{$kls->sks}}</td>
                         <td class="text-center">
-                            <a class="btn btn-outline-warning mb-2" href="/kelas/{{$kls->id}}/edit">Edit</a>
-                            <a class="btn btn-outline-primary" href="/kelas/{{$kls->id}}/detail">Detail</a>
+                            <a class="btn btn-outline-warning mb-1" href="/kelas/{{$kls->id}}/edit">Edit</a>
+                            <a class="btn btn-outline-primary mb-1" href="/kelas/{{$kls->id}}/detail">Detail</a>
                         </td>
                     </tr>
                     @endforeach

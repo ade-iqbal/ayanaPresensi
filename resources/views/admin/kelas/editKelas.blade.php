@@ -108,6 +108,7 @@
 			<div class="col-md-12">
 				<center>
 					<button type="submit" name="ubah" class="btn btn-outline-primary" onclick="return confirm('Apakah Anda yakin data yang ada isi sudah benar?')">Ubah Kelas</button>
+					<a class="btn btn-outline-primary" href="/home">Kembali</a>
 				</center>
 			</div>
 		</form>

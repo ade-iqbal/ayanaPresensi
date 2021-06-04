@@ -12,16 +12,18 @@ class MahasiswaController extends Controller
     public function detail_kelas($id){
         
         $kelas = Kelas::find($id);
-        $pertemuan_presensi = Pertemuan::select('pertemuan.pertemuan_ke', 'pertemuan.tanggal', 'absensi.jam_masuk', 'absensi.jam_keluar', 'absensi.durasi')
-                                ->leftjoin('absensi', 'pertemuan.id', '=', 'absensi.pertemuan_id')
-                                ->join('kelas', 'pertemuan.kelas_id', '=', 'kelas.id')
-                                ->join('krs', 'kelas.id', '=', 'krs.kelas_id')
-                                ->join('mahasiswa', 'krs.mahasiswa_id', '=', 'mahasiswa.id')
-                                ->where([
-                                    ['krs.mahasiswa_id', auth()->user()->mahasiswa->id],
-                                    ['krs.kelas_id', $id]
-                                    ])
-                                ->get();                
+        $pertemuan_presensi = Kelas::select('mahasiswa.nama', 'kelas.id', 'kelas.nama_matkul', 'absensi.*', 'pertemuan.id', 'pertemuan.pertemuan_ke')
+						->join('krs', 'kelas.id', '=', 'krs.kelas_id')
+						->join('mahasiswa', 'krs.mahasiswa_id', '=', 'mahasiswa.id')
+						->join('pertemuan', 'kelas.id', '=', 'pertemuan.kelas_id')
+						->leftjoin('absensi', function($query){
+							$query->on('pertemuan.id', '=', 'absensi.pertemuan_id');
+							$query->on('krs.id', '=', 'absensi.krs_id');
+						})
+						->where('kelas.id', $id)
+						->where('mahasiswa.id', auth()->user()->mahasiswa->id)
+						->get();
+
         return view('mahasiswa.detail_kelas', compact('kelas', 'pertemuan_presensi'));
 
     }

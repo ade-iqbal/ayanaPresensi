@@ -35,9 +35,9 @@
                 @csrf
                 <div class="form-group">
                     <label for="upload-file">Upload CSV</label>
-                    <input type="file" name="upload-file" class="form-control">
+                    <input type="file" name="upload-file" class="form-control mb-3">
                 </div>
-                <input class="btn btn-success" type="submit" value="Upload CSV" name="submit"> 
+                <input class="btn btn-success mb-3" type="submit" value="Upload CSV" name="submit"> 
             </form>
             <!-- <a class="btn btn-success mb-3 float-right" href="/upload/{{$pertemuan->id}}/{{$id_kelas}}">Upload CVS</a> -->
             <table id="example-2" class="display table-striped" style="width:100%">

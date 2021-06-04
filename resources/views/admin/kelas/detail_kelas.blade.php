@@ -67,7 +67,7 @@
                     <td>{{$mhs->mahasiswa->nim}}</td>
                     <td>{{$mhs->mahasiswa->email}}</td>
                     <td class="text-center">
-                        <a class="btn btn-outline-danger" href="/kelas/peserta/{{$mhs->id}}/destroy">Hapus</a>
+                        <a class="btn btn-outline-danger" href="/kelas/peserta/{{$mhs->id}}/destroy" onclick="return confirm('Anda yakin ingin menghapus peserta ini?')">Hapus</a>
                     </td>
                 </tr>
                 @endforeach

@@ -22,7 +22,7 @@
         <div class="bg-white shadow-lg" id="sidebar-wrapper">
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">
                 <a href="{{route('home')}}">
-                    <img src="{{asset('img/ayana-logo.jpeg')}}" alt="logo ayana">
+                    <img src="{{asset('img/ayana.png')}}" alt="logo ayana">
                 </a>
             </div>
             <div class="list-group list-group-flush my-3">
