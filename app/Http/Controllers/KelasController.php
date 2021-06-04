@@ -27,10 +27,34 @@ class KelasController extends Controller
     }
 
     public function tambah_pertemuan($id){
-        return view('admin.pertemuan.tambah_pertemuan', compact('id'));
+		$pertemuan = Kelas::select('kelas.id', 'pertemuan.pertemuan_ke')
+					->join('pertemuan', 'kelas.id', '=', 'pertemuan.kelas_id')
+					->where('kelas.id', $id)
+					->get();
+		$array=[];
+		
+		for($i=1;$i<=16;$i++){
+			$a=false;
+			foreach($pertemuan as $pt){
+				if($i==$pt->pertemuan_ke){
+					$a=true;
+					break;
+				}
+			}
+			if($a==false){
+				array_push($array, $i);
+			}
+		}
+        return view('admin.pertemuan.tambah_pertemuan', compact('id', 'array'));
     }
 
     public function store_pertemuan(Request $request, $id){
+		$request->validate([
+			'pertemuan_ke' => 'required',
+			'tanggal' => 'required',
+			'materi' => 'required'
+		]);
+
         $request->request->add(['kelas_id' => $id]);
         Pertemuan::create([
 			'kelas_id' => $id,

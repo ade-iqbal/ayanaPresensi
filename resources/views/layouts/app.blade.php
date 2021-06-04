@@ -82,7 +82,7 @@
             </div>
 
             <div class="footer-wrapper text-center">
-                <p>©Build by Kelompok 7</p>
+                <p>©Build by Saptadarpa</p>
                 <p>@2021</p>
             </div>
         </div>

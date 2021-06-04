@@ -13,37 +13,27 @@
         <div class="col-md-3">
           <div class="form-group">
             <label>Pertemuan Ke-</label><br>
-            <select class="form-control" name="pertemuan_ke">
+            <select class="form-control @error('pertemuan_ke') is-invalid @enderror" name="pertemuan_ke">
                 <option value="" hidden>-- Masukkan Pilihan --</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">UTS</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">UAS</option>
+                @foreach($array as $ar)
+                  <option value="{{$ar}}">{{($ar==8) ? "UTS" : (($ar==16) ? "UAS" : $ar)}}</option>
+                @endforeach
             </select>
+            @error('pertemuan_ke')<div class="invalid-feedback">{{ $message }}</div>@enderror
           </div>
         </div>
         <div class="col-md-3">
           <div class="form-group">
             <label>Tanggal Pertemuan</label>
-            <input type="date" name="tanggal" class="form-control" placeholder="Pilih Tanggal" required="">
+            <input type="date" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" placeholder="Pilih Tanggal">
+            @error('tanggal')<div class="invalid-feedback">{{ $message }}</div>@enderror
           </div>
         </div>
       </div><br>
       <div class="form-group">
         <label>Materi</label>
-        <textarea class="form-control" name="materi" required=""></textarea>
+        <textarea class="form-control @error('materi') is-invalid @enderror" name="materi"></textarea>
+        @error('materi')<div class="invalid-feedback">{{ $message }}</div>@enderror
       </div><br>
       <button onclick="return confirm('Apakah anda ingin menginput data?');" type="submit" class="btn btn-primary">Simpan</button>
       <button type="reset" class="btn btn-danger">Hapus</button>
